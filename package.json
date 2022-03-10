@@ -2,6 +2,16 @@
   "name": "reactts-template",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jest-environment-jsdom",
+    "eject": "craco eject",
+    "ci-test": "CI=true craco test --env=jest-environment-jsdom",
+    "ci-format": "prettier --config ./.prettierrc --check src/**/*.{json,ts,tsx,css}",
+    "format": "prettier --config ./.prettierrc --write src/**/*.{json,ts,tsx,css}",
+    "lint": "eslint --max-warnings=0 src/**/*.{json,ts,tsx}"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -16,17 +26,112 @@
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
+    "env": {
+      "node": true,
+      "es2017": true,
+      "jest": true
+    },
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "promise",
+      "react"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "@typescript-eslint/array-type": [
+        "error",
+        {
+          "default": "array"
+        }
+      ],
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/method-signature-style": [
+        "error",
+        "property"
+      ],
+      "@typescript-eslint/no-empty-function": "error",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+      "@typescript-eslint/no-unnecessary-condition": [
+        "off",
+        {
+          "ignoreRhs": true
+        }
+      ],
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unused-expressions": "error",
+      "@typescript-eslint/no-use-before-define": "off",
+      "@typescript-eslint/prefer-as-const": "error",
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/prefer-string-starts-ends-with": "error",
+      "@typescript-eslint/switch-exhaustiveness-check": "error",
+      "@typescript-eslint/unbound-method": "off",
+      "camelcase": "off",
+      "consistent-return": "error",
+      "curly": "error",
+      "dot-location": [
+        "error",
+        "property"
+      ],
+      "dot-notation": "error",
+      "eqeqeq": "error",
+      "no-alert": "error",
+      "no-console": "error",
+      "no-duplicate-imports": "error",
+      "no-else-return": "error",
+      "no-eval": "error",
+      "no-extend-native": "error",
+      "no-lone-blocks": "error",
+      "no-nested-ternary": "error",
+      "no-new-func": "error",
+      "no-return-assign": "error",
+      "no-return-await": "error",
+      "no-self-compare": "error",
+      "no-sequences": "error",
+      "no-template-curly-in-string": "error",
+      "no-throw-literal": "error",
+      "no-unused-expressions": "off",
+      "no-useless-call": "error",
+      "no-useless-computed-key": "error",
+      "no-useless-concat": "error",
+      "no-useless-constructor": "error",
+      "no-useless-rename": "error",
+      "no-useless-return": "error",
+      "no-var": "error",
+      "object-shorthand": "error",
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "prefer-spread": "error",
+      "promise/prefer-await-to-callbacks": "error",
+      "promise/prefer-await-to-then": "warn",
+      "react/boolean-prop-naming": "error",
+      "react/display-name": "off",
+      "react/jsx-boolean-value": "error",
+      "react/jsx-fragments": "error",
+      "react/jsx-no-target-blank": "error",
+      "react/no-unescaped-entities": "off",
+      "react/prop-types": "off",
+      "require-await": "error",
+      "yoda": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +144,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "circular-dependency-plugin": "^5.2.2",
+    "craco": "0.0.3",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest-environment-jsdom": "^27.0.6",
+    "jest-watch-typeahead": "^0.6.5",
+    "prettier": "^2.5.1"
   }
 }
