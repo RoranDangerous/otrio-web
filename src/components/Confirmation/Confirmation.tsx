@@ -1,7 +1,8 @@
 import React from 'react';
-import { ButtonPrimary, PlayerItem, PlayersList, RoomCode } from "../styles";
-import { startGame } from "../utils/ajax"
-import { getPlayer } from "../utils/auth";
+import { ButtonPrimary } from "../../styles";
+import { startGame } from "../../utils/ajax"
+import { getPlayer } from "../../utils/auth";
+import { PlayerItem, PlayersList, RoomCode } from './Confirmation.styles';
 
 type ConfirmationProps = {
   code: string;
