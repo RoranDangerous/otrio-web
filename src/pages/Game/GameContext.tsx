@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export type GameState = {
   inProgress: boolean;
@@ -8,17 +8,17 @@ export type GameState = {
   playersPosition: (keyof Players)[];
   playerMove: number;
   players: Players;
-}
+};
 
 type Cell = {
   small: CellInfo | null;
   medium: CellInfo | null;
   large: CellInfo | null;
-}
+};
 type CellInfo = {
   color: string;
   player: string;
-}
+};
 
 type Players = Record<string, Player>;
 type Player = {
@@ -29,13 +29,13 @@ type Player = {
     small: number;
     medium: number;
     large: number;
-  }
+  };
 };
 
 type GameContextProps = {
   game: GameState;
   cellSelected: number | null;
-  setCellSelected: (i: number | null) => void ;
-}
+  setCellSelected: (i: number | null) => void;
+};
 
 export const GameContext = React.createContext<GameContextProps>(undefined!);

@@ -1,16 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Socket } from "socket.io-client";
-import { Confirmation } from "../../components/Confirmation";
-import { IdentifyYourself } from "../../components/IdentifyYourself";
-import { GameWrapper, Loading } from "./Game.styles";
-import { socialize } from "../../utils/ajax";
-import { getPlayer } from "../../utils/auth";
-import { GameBoard } from "../../components/GameBoard";
-import { GameContext, GameState } from "./GameContext";
-import { ChipOptions } from "../../components/ChipOptions";
-import { Header } from "../../components/Header";
-import { PlayersInfo } from "../../components/PlayersInfo";
+import React, { useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Socket } from 'socket.io-client';
+import { Confirmation } from '../../components/Confirmation';
+import { IdentifyYourself } from '../../components/IdentifyYourself';
+import { GameWrapper, Loading } from './Game.styles';
+import { socialize } from '../../utils/ajax';
+import { getPlayer } from '../../utils/auth';
+import { GameBoard } from '../../components/GameBoard';
+import { GameContext, GameState } from './GameContext';
+import { ChipOptions } from '../../components/ChipOptions';
+import { Header } from '../../components/Header';
+import { PlayersInfo } from '../../components/PlayersInfo';
 
 export const GamePage = () => {
   const { code: codeFromParams } = useParams();
@@ -23,46 +23,43 @@ export const GamePage = () => {
   useEffect(() => {
     let socket: Socket;
 
-    if(!error){
+    if (!error) {
       setIPlayer(getPlayer());
-      socket = socialize(code, (data) => {
-        console.log(data)
-        setGame(data);
-      },
-      () => setError(true));
+      socket = socialize(
+        code,
+        (data) => {
+          console.log(data);
+          setGame(data);
+        },
+        () => setError(true)
+      );
     }
 
     return () => {
       socket?.disconnect();
     };
-  }, [code, error])
+  }, [code, error]);
 
-  if(error){
-    return (
-      <IdentifyYourself onFinish={() => setError(false)} code={code ?? ''}/>
-    )
+  if (error) {
+    return <IdentifyYourself onFinish={() => setError(false)} code={code ?? ''} />;
   }
 
-  if(!game){
-    return (
-      <Loading>Wiping tables... Give me a second!</Loading>
-    )
+  if (!game) {
+    return <Loading>Wiping tables... Give me a second!</Loading>;
   }
 
-  if(!game.inProgress){
-    return (
-      <Confirmation code={code ?? ''} players={game.players} canConfirm={game.queen === iPlayer} />
-    )
+  if (!game.inProgress) {
+    return <Confirmation code={code ?? ''} players={game.players} canConfirm={game.queen === iPlayer} />;
   }
 
   return (
-    <GameContext.Provider value={{ game, cellSelected, setCellSelected}}>
+    <GameContext.Provider value={{ game, cellSelected, setCellSelected }}>
       <GameWrapper>
         <Header />
         <PlayersInfo />
-        <GameBoard/>
+        <GameBoard />
         <ChipOptions />
       </GameWrapper>
     </GameContext.Provider>
-  )
-}
+  );
+};

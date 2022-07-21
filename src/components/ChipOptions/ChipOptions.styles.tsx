@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const OptionsContainer = styled.div<{ visible: boolean }>`
   width: 100vw;
@@ -7,7 +7,7 @@ export const OptionsContainer = styled.div<{ visible: boolean }>`
   padding: 1px;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
-  visibility: ${({ visible }) => visible ? 'visible' : 'hidden'};
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   margin: auto;
 `;
 
@@ -19,12 +19,16 @@ export const OptionCell = styled.div<{ disabled: boolean }>`
   box-shadow: 0px 2px 10px #000;
   border-radius: 25px;
 
-  ${({ disabled }) => disabled && `
+  ${({ disabled }) =>
+    disabled &&
+    `
   opacity: 0.3;
   cursor: not-allowed;
   `};
 
-  ${({ disabled }) => !disabled && `
+  ${({ disabled }) =>
+    !disabled &&
+    `
   &:hover {
     opacity: 0.5;
   }`}

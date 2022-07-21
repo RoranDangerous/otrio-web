@@ -14,15 +14,15 @@ export const ButtonPrimary = styled.button`
   max-width: 90vw;
 
   &:hover {
-    opacity: 0.8
+    opacity: 0.8;
   }
 
   &:disabled {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     cursor: not-allowed;
     color: white;
   }
-`
+`;
 
 export const ButtonSecondary = styled.button`
   background-color: white;
@@ -37,15 +37,15 @@ export const ButtonSecondary = styled.button`
   max-width: 90vw;
 
   &:hover {
-    opacity: 0.8
+    opacity: 0.8;
   }
 
   &:disabled {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     cursor: not-allowed;
     color: white;
   }
-`
+`;
 
 export const Label = styled.label`
   width: 25rem;
@@ -53,10 +53,10 @@ export const Label = styled.label`
   text-transform: uppercase;
   margin-top: 1rem;
   max-width: 90vw;
-`
+`;
 
 export const Input = styled.input`
-  padding: .5rem;
+  padding: 0.5rem;
   width: 25rem;
   height: 3rem;
   border: none;
@@ -64,13 +64,13 @@ export const Input = styled.input`
   text-align: center;
   font-size: 1.7rem;
   color: ${color.black};
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   text-transform: uppercase;
   max-width: 90vw;
-`
+`;
 
 export const ErrorMessage = styled.p`
   color: ${color.red};
   max-width: 90vw;
   margin: 1rem 0 0 0;
-`
+`;

@@ -6,8 +6,8 @@ import { GamePage } from './pages/Game';
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/:code" element={<GamePage />} />
+      <Route path='/' element={<LandingPage />} />
+      <Route path='/:code' element={<GamePage />} />
     </Routes>
   </BrowserRouter>
 );

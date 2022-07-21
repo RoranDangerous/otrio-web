@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { AiOutlineReload } from "react-icons/ai";
+import styled from 'styled-components';
+import { AiOutlineReload } from 'react-icons/ai';
 
 export const HeaderContainer = styled.div`
   width: 100vw;
@@ -7,13 +7,13 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   box-shadow: 0px 2px 10px #000;
-`
+`;
 
 export const HeaderText = styled.p`
   text-align: center;
   font-size: 2rem;
   margin: 0.5rem 0;
-`
+`;
 
 export const ReloadIcon = styled(AiOutlineReload)`
   position: absolute;
@@ -25,6 +25,6 @@ export const ReloadIcon = styled(AiOutlineReload)`
   border-radius: 50%;
 
   &:hover {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
   }
-`
+`;
