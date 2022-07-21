@@ -13,21 +13,21 @@ export const RoomCode = styled.p`
 `
 
 export const PlayersList = styled.div`
-width: 25rem;
-max-width: 90vw;
-padding: 1rem;
-display: flex;
-flex-direction: column;
+  width: 25rem;
+  max-width: 90vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 `
 
 export const PlayerItem = styled.div<{ isCurrent: boolean }>`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-& > p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  color: ${({ isCurrent }) => isCurrent ? color.blue : 'unset'};
-}
+  & > p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: ${({ isCurrent }) => isCurrent ? color.blue : 'unset'};
+  }
 `;

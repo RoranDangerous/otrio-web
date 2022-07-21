@@ -39,7 +39,7 @@ export const IdentifyYourself: React.FC<IdentifyYourselfProps> = ({ code, onFini
     <>
       <ErrorMessage>{error}</ErrorMessage>
       <Label>Name</Label>
-      <Input placeholder="Enter your name" value={name} maxLength={25} onChange={onNameChange} disabled={loading}/>
+      <Input placeholder="Enter your name" value={name} maxLength={15} onChange={onNameChange} disabled={loading}/>
       <ButtonPrimary onClick={handleClick} disabled={name.length === 0 || loading}>Join Game</ButtonPrimary>
       <ButtonSecondary onClick={() => navigate('/')}>Back</ButtonSecondary>
     </>

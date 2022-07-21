@@ -4,7 +4,7 @@ export type GameState = {
   inProgress: boolean;
   board: Cell[];
   queen: keyof Players;
-  winner: keyof Players;
+  winner: keyof Players | null;
   playersPosition: (keyof Players)[];
   playerMove: number;
   players: Players;

@@ -74,10 +74,3 @@ export const ErrorMessage = styled.p`
   max-width: 90vw;
   margin: 1rem 0 0 0;
 `
-
-export const Header = styled.div`
-  width: 100vw;
-  height: 5rem;
-  box-shadow: 0px 2px 10px #000;
-  margin-bottom: 0.8rem;
-`

@@ -11,7 +11,7 @@ export const GameBoard = () => {
   const iGuess = useMemo(() => iPlayer === game.playersPosition[game.playerMove], [game, iPlayer])
 
   const handleClick = (index: number) => {
-    if(iGuess){
+    if(iGuess && !game.winner){
       setCellSelected(index === cellSelected ? null : index);
     }
   }
@@ -19,7 +19,7 @@ export const GameBoard = () => {
   return (
     <GameBoardContainer>
       {game.board.map((cell, i: number) => (
-        <BoardCell key={i} onClick={() => handleClick(i)} selected={cellSelected === i}>
+        <BoardCell key={i} myTurn={iGuess && !game.winner} onClick={() => handleClick(i)} selected={cellSelected === i}>
           {cell && (
             <>
               {cell.large && <Chip size={CircleSize.LARGE} color={cell.large.color}/>}

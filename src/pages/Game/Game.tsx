@@ -10,6 +10,7 @@ import { GameBoard } from "../../components/GameBoard";
 import { GameContext, GameState } from "./GameContext";
 import { ChipOptions } from "../../components/ChipOptions";
 import { Header } from "../../components/Header";
+import { PlayersInfo } from "../../components/PlayersInfo";
 
 export const GamePage = () => {
   const { code: codeFromParams } = useParams();
@@ -58,7 +59,7 @@ export const GamePage = () => {
     <GameContext.Provider value={{ game, cellSelected, setCellSelected}}>
       <GameWrapper>
         <Header />
-        <div style={{}}></div>
+        <PlayersInfo />
         <GameBoard/>
         <ChipOptions />
       </GameWrapper>
