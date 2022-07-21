@@ -1,5 +1,5 @@
-const tokenKey = 'tic-tac-toe-token';
-const playerKey = 'tic-tac-toe-player';
+const tokenKey = 'otrio-token';
+const playerKey = 'otrio-player';
 
 export const getToken = () => localStorage.getItem(tokenKey) ?? '';
 export const setToken = (token: string) => localStorage.setItem(tokenKey, token);
