@@ -2,7 +2,7 @@ import { getToken, setToken } from './auth';
 import socketIOClient from 'socket.io-client';
 import { GameState } from '../pages/Game/GameContext';
 
-const ENDPOINT = 'http://127.0.0.1:4001';
+const ENDPOINT = 'https://otrio-roman.herokuapp.com/';
 
 export const createGame = async (player: string) => {
   const response = await fetch(ENDPOINT + '/create', {
