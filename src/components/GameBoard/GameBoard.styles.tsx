@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GameBoardContainer = styled.div`
-  width: 100vw;
+  width: 85vw;
   max-width: 500px;
   display: grid;
   gap: 5px;

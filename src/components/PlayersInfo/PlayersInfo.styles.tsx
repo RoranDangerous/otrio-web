@@ -5,9 +5,9 @@ export const PlayersContainer = styled.div`
   width: 100vw;
   max-width: 500px;
   display: grid;
-  gap: 1rem;
+  gap: 0.7rem;
   grid-template-columns: repeat(2, 1fr);
-  margin: 1.5rem auto auto auto;
+  margin: 1rem auto auto auto;
 `;
 
 export const PlayerCell = styled.div<{ isTurn: boolean; isWinner: boolean; isLoser: boolean }>`

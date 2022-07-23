@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const OptionsContainer = styled.div<{ visible: boolean }>`
-  width: 100vw;
+  width: 85vw;
   max-width: 500px;
   display: grid;
   padding: 1px;

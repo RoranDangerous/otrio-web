@@ -12,12 +12,12 @@ export const HeaderContainer = styled.div`
 export const HeaderText = styled.p`
   text-align: center;
   font-size: 2rem;
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
 `;
 
 export const ReloadIcon = styled(AiOutlineReload)`
   position: absolute;
-  top: 0.5rem;
+  top: 0.2rem;
   right: 1rem;
   padding: 0.2rem;
   font-size: 2rem;
