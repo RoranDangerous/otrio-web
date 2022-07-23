@@ -29,8 +29,13 @@ export const LandingPage = () => {
   };
 
   const handleCreate = async () => {
-    const code = await createGame(name);
-    navigate('/' + code);
+    const { code, error } = await createGame(name);
+
+    if (!error) {
+      navigate('/' + code);
+    } else {
+      setError(error);
+    }
   };
 
   const handleJoin = async () => {

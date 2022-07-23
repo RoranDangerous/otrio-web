@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GameContext } from '../../pages/Game/GameContext';
 import { ButtonPrimary } from '../../styles';
 import { startGame } from '../../utils/ajax';
 import { getPlayer } from '../../utils/auth';
+import { ColorSelect } from '../ColorSelect';
 import { PlayerItem, PlayersList, RoomCode } from './Confirmation.styles';
 
 type ConfirmationProps = {
@@ -11,6 +13,8 @@ type ConfirmationProps = {
 };
 
 export const Confirmation: React.FC<ConfirmationProps> = ({ code, players, canConfirm }) => {
+  const { game } = useContext(GameContext);
+
   const onButtonClick = async () => {
     await startGame(code, getPlayer());
   };
@@ -26,9 +30,9 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ code, players, canCo
           .sort(sortByScore)
           .map((player, i) => (
             <PlayerItem isCurrent={player === getPlayer()} key={player}>
-              <p>
-                {i + 1}. {player}
-              </p>
+              <div>
+                <ColorSelect color={game.players[player].color}/>{i + 1}. {player}
+              </div>
               <p>{players[player].score}</p>
             </PlayerItem>
           ))}

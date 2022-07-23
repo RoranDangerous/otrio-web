@@ -6,11 +6,12 @@ import { ChipQTY, ChipContainer, OptionsContainer, PlayerCell, PlayersContainer 
 
 export const PlayersInfo = () => {
   const { game } = useContext(GameContext);
-  const players = Object.entries(game.players);
+  const playerNames = game.playersPosition;
+  const players = game.players;
 
   return (
     <PlayersContainer>
-      {players.map(([playerName, player]) => (
+      {playerNames.map((playerName) => (
         <PlayerCell
           key={playerName}
           isTurn={!game.winner && game.playersPosition[game.playerMove] === playerName}
@@ -22,21 +23,21 @@ export const PlayersInfo = () => {
           <OptionsContainer>
             <div>
               <ChipContainer>
-                <Chip size={CircleSize.LARGE} color={player.color} />
+                <Chip size={CircleSize.LARGE} color={players[playerName].color} />
               </ChipContainer>
-              <ChipQTY>x{player.chips.large}</ChipQTY>
+              <ChipQTY>x{players[playerName].chips.large}</ChipQTY>
             </div>
             <div>
               <ChipContainer>
-                <Chip size={CircleSize.MEDIUM} color={player.color} />
+                <Chip size={CircleSize.MEDIUM} color={players[playerName].color} />
               </ChipContainer>
-              <ChipQTY>x{player.chips.medium}</ChipQTY>
+              <ChipQTY>x{players[playerName].chips.medium}</ChipQTY>
             </div>
             <div>
               <ChipContainer>
-                <Chip size={CircleSize.SMALL} color={player.color} />
+                <Chip size={CircleSize.SMALL} color={players[playerName].color} />
               </ChipContainer>
-              <ChipQTY>x{player.chips.small}</ChipQTY>
+              <ChipQTY>x{players[playerName].chips.small}</ChipQTY>
             </div>
           </OptionsContainer>
         </PlayerCell>

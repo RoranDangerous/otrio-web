@@ -1,6 +1,7 @@
-import { getToken, setToken } from './auth';
+import { getToken, setToken, getColor, setColor as setColorLocal } from './auth';
 import socketIOClient from 'socket.io-client';
 import { GameState } from '../pages/Game/GameContext';
+import { getRandomColor } from './random';
 
 const ENDPOINT = 'https://otrio-roman.herokuapp.com';
 
@@ -12,12 +13,13 @@ export const createGame = async (player: string) => {
     },
     body: JSON.stringify({
       name: player,
+      color: getColor() || getRandomColor(),
     }),
   });
-  const { token, code } = await response.json();
+  const { token, code, error } = await response.json();
   setToken(token);
 
-  return code;
+  return { code, error };
 };
 
 export const joinGame = async (code: string, player: string) => {
@@ -34,6 +36,11 @@ export const joinGame = async (code: string, player: string) => {
   });
   const { token, error } = await response.json();
   setToken(token);
+
+  const color = getColor();
+  if(color){
+    await setColor(color);
+  }
 
   return { token, error };
 };
@@ -83,3 +90,17 @@ export const reset = () =>
     },
     body: JSON.stringify({ token: getToken() }),
   });
+
+export const setColor = async (color: string) => {
+  const response = await fetch(ENDPOINT + '/color', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token: getToken(), color }),
+  });
+
+  setColorLocal(color);
+
+  return response;
+}

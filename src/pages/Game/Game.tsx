@@ -49,7 +49,11 @@ export const GamePage = () => {
   }
 
   if (!game.inProgress) {
-    return <Confirmation code={code ?? ''} players={game.players} canConfirm={game.queen === iPlayer} />;
+    return (
+      <GameContext.Provider value={{ game, cellSelected, setCellSelected }}>
+        <Confirmation code={code ?? ''} players={game.players} canConfirm={game.queen === iPlayer} />
+      </GameContext.Provider>
+    );
   }
 
   return (
